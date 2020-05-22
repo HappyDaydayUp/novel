@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:notebook/model/novel_model.dart';
+import 'package:notebook/router/route_navgator.dart';
 
 class NewUpdateView extends StatelessWidget {
   const NewUpdateView({
@@ -17,7 +18,6 @@ class NewUpdateView extends StatelessWidget {
         left: 10,
         right: 10,
       ),
-      height: 5000,
       child: ListView.builder(
         itemBuilder: (_, index) {
           final model = data[index];
@@ -46,6 +46,12 @@ class NewUpdateItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
         elevation: .8,
         child: ListTile(
+          onTap: () {
+            RouteNavgator.goChapterPage(
+              context,
+              model.novelModel.noveItem,
+            );
+          },
           title: Text(
             model.novelModel.noveItem.name,
           ),

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:notebook/model/novel_model.dart';
+import 'package:notebook/router/route_navgator.dart';
 
 class IntrolView extends StatelessWidget {
   IntrolView({
@@ -66,7 +67,12 @@ class IntrGirdItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          RouteNavgator.goChapterPage(
+            context,
+            model.noveItem,
+          );
+        },
         child: Container(
           padding: EdgeInsets.only(
             left: 5,

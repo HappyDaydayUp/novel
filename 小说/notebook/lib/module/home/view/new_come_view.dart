@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notebook/model/novel_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:notebook/router/route_navgator.dart';
 
 class NewComeInView extends StatelessWidget {
   const NewComeInView({
@@ -46,6 +47,12 @@ class NewConInItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
         elevation: .8,
         child: ListTile(
+          onTap: () {
+            RouteNavgator.goChapterPage(
+              context,
+              model.noveItem,
+            );
+          },
           title: Text(
             model.noveItem.name,
           ),

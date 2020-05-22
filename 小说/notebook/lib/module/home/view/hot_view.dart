@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notebook/model/novel_model.dart';
+import 'package:notebook/router/route_navgator.dart';
 
 class HomeHotView extends StatelessWidget {
   HomeHotView({
@@ -50,7 +51,11 @@ class HomeHotItem extends StatelessWidget {
       elevation: 1,
       child: InkWell(
         onTap: () {
-          debugPrint('InkWell===InkWell==>>');
+          // zhege 地方点击 跳转到对应的页面去
+          RouteNavgator.goChapterPage(
+            context,
+            data.noveItem,
+          );
         },
         child: Container(
           // color: Colors.white,

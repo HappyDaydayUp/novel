@@ -1,35 +1,12 @@
 // 首页获得数据并且解析数据
-import 'dart:io';
-import 'package:dio/dio.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart' as Dom;
 import 'package:notebook/model/novel_model.dart';
 import 'package:notebook/module/home/model/home_model.dart';
+import 'package:notebook/service/service.dart';
 
-class HomeService {
-  //http://www.xbiquge.la/
-  var dio = Dio(
-    BaseOptions(
-      headers: {
-        HttpHeaders.acceptHeader:
-            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-        HttpHeaders.userAgentHeader:
-            'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
-      },
-    ),
-  );
-
+class HomeService extends Service {
   Future<HomeModel> getData() async {
-    // 这个地方需要增加错误处理
-    // 网络发生错误的情况
-    // 先要判断有没有网络情况
-
-    // try {
-
-    // } catch (e) {
-
-    // }
-
     var homeUrl = 'http://www.xbiquge.la/';
     var response = await dio.get(
       homeUrl,

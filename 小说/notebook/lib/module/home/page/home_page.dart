@@ -54,9 +54,6 @@ class _HomePageState extends State<HomePage>
             create: (context) => _viewModel,
             child: Consumer<HomeViewModel>(builder:
                 (BuildContext context, HomeViewModel viewModel, Widget child) {
-              debugPrint(
-                  '=model.hotData.length============${viewModel.state}>');
-
               return BasePageView(
                 typle: viewModel.state,
                 buildCallback: (context) => Container(
@@ -74,29 +71,6 @@ class _HomePageState extends State<HomePage>
                 ),
                 callback: () {},
               );
-
-/*
-              if (viewModel.loading) {
-                return Center(
-                  child: CupertinoActivityIndicator(
-                    animating: true,
-                  ),
-                );
-              }
-              return Container(
-                child: TabBarView(controller: _tabController, children: [
-                  CustomScrollView(
-                    slivers: <Widget>[
-                      HomeHotView(hotData: viewModel.model.hotData),
-                      IntrolView(intrData: viewModel.model.intrData),
-                      NovelSctionView(dataList: viewModel.model.novelList),
-                    ],
-                  ),
-                  NewUpdateView(data: viewModel.model.updateData),
-                  NewComeInView(data: viewModel.model.cominData),
-                ]),
-              );
-              */
             }),
           ),
         ),

@@ -1,6 +1,18 @@
-abstract class BaseViewModel {
+import 'package:flutter/material.dart';
+
+class BaseViewModel<T> with ChangeNotifier {
   ViewModelTyple state;
-  void loadData();
+  T model;
+  void loadData() {
+    change(ViewModelTyple.loading);
+  }
+
+  void change(ViewModelTyple state) {
+    if (this.state != state) {
+      this.state = ViewModelTyple.loading;
+      notifyListeners();
+    }
+  }
 }
 
 enum ViewModelTyple {

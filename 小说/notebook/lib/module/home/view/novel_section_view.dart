@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:notebook/model/novel_model.dart';
+import 'package:notebook/router/route_navgator.dart';
 
 class NovelSctionView extends StatelessWidget {
   const NovelSctionView({
@@ -100,6 +101,10 @@ class NovelItemView extends StatelessWidget {
       child: FlatButton(
         onPressed: () {
           debugPrint('FlatButton===>>');
+          RouteNavgator.goChapterPage(
+            context,
+            model,
+          );
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
